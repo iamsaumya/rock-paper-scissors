@@ -2,6 +2,8 @@ body{
     padding: 0;
     margin: 0;
     background-color:darkgray;
+    font-family: "Indie Flower", cursive,sans-serif;
+
 }
 header{
     background-color: dimgrey;
@@ -32,12 +34,17 @@ header div{
     border: 4px solid black;
     background-color: dimgrey;
     text-align: center;
-
+    display: inline-block;
 }
 
 .name{
     font-family: "Indie Flower", cursive,sans-serif;
     margin: 10px;
+}
+
+#hyphen{
+    display: inline-block;
+    font-size: 100px;
 }
 
 .scorecounter{
@@ -47,4 +54,26 @@ header div{
     background-color: darkgray;
     text-align:center;
     font-size: 83px;
+}
+
+#status{
+    position: relative;
+    top: 110px;
+    font-size: 60px;
+}
+#you{
+    float: left;
+    position: absolute;
+    bottom: 140px;
+}
+
+#machine{
+    float: right;
+    position: absolute;
+    right: 35px;
+    bottom: 140px;
+}
+
+.btn{
+    margin: 10px 20px 10px 20px;
 }
