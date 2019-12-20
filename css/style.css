@@ -54,6 +54,7 @@ header div{
     background-color: darkgray;
     text-align:center;
     font-size: 83px;
+    border: 3px solid black;
 }
 
 #status{
@@ -76,4 +77,5 @@ header div{
 
 .btn{
     margin: 10px 20px 10px 20px;
+    border: 3px solid black;
 }
