@@ -3,6 +3,8 @@ body{
     margin: 0;
     background-color:darkgray;
     font-family: "Indie Flower", cursive,sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 
 }
 header{
