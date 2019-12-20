@@ -1,0 +1,50 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color:darkgray;
+}
+header{
+    background-color: dimgrey;
+    color: black;
+    font-family: "Indie Flower", cursive,sans-serif;
+    text-align: center;
+}
+h1{
+    margin: 0;
+}
+header div{
+    font-size: 20px;
+    font-weight: 300;
+    border-bottom: 4px solid black;
+}
+
+
+.btn{
+    width: 100px;
+    height: 100px;
+}
+
+#container{
+    margin: 5px auto 5px auto;
+    height: 650px;
+    padding: 15px;
+    width: 96%;
+    border: 4px solid black;
+    background-color: dimgrey;
+    text-align: center;
+
+}
+
+.name{
+    font-family: "Indie Flower", cursive,sans-serif;
+    margin: 10px;
+}
+
+.scorecounter{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+    text-align:center;
+    font-size: 83px;
+}
