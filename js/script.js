@@ -22,6 +22,7 @@ let computer = 0;
 const btns = document.querySelectorAll(".youbtn");
 btns.forEach(youbtn => youbtn.addEventListener("click", checkAfterClick));
 
+
 function checkAfterClick(e) {
 
     const status = document.getElementById("status");
@@ -37,22 +38,28 @@ function checkAfterClick(e) {
     } else {
         status.textContent = "It is a Draw";
     }
-
+    
     const youcounter = document.getElementById("youcounter");
     youcounter.textContent = `${user}`;
     const machinecounter = document.getElementById("machinecounter");
     machinecounter.textContent = `${computer}`;
 
     if (user === 5 || computer === 5) {
+        const playagain = document.querySelector("#playagain");
+        playagain.addEventListener("click",reset);
         if (user === 5) {
             status.textContent = "You won the Championship <3";
         } else {
             status.textContent = "Better luck next time!";
         }
+        const btn = document.querySelectorAll(".btn");
+        btn.forEach( bt => {bt.style.visibility = "hidden"});
+        playagain.style.visibility = "visible";
     }
+    
 }
 
-function reset() {
+function reset(e) {
     user = 0;
     computer = 0;
     const youcounter = document.getElementById("youcounter");
@@ -61,6 +68,9 @@ function reset() {
     machinecounter.textContent = "0";
     const status = document.getElementById("status");
     status.textContent = "";
+    const btn = document.querySelectorAll(".btn");
+    btn.forEach( bt => {bt.style.visibility = "visible"});
+    this.hide;
 }
 
 function computerPlay() {
