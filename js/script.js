@@ -1,16 +1,16 @@
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-    if (playerSelection === "rock" && computerSelection === "paper") {
+    if (playerSelection === "rock" && computerSelection === "paperm") {
         return 0;
-    } else if (playerSelection === "rock" && computerSelection === "scissor") {
+    } else if (playerSelection === "rock" && computerSelection === "scissorm") {
         return 1;
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
+    } else if (playerSelection === "paper" && computerSelection === "rockm") {
         return 1;
-    } else if (playerSelection === "paper" && computerSelection === "scissor") {
+    } else if (playerSelection === "paper" && computerSelection === "scissorm") {
         return 0;
-    } else if (playerSelection === "scissor" && computerSelection === "paper") {
+    } else if (playerSelection === "scissor" && computerSelection === "paperm") {
         return 1;
-    } else if (playerSelection === "scissor" && computerSelection === "rock") {
+    } else if (playerSelection === "scissor" && computerSelection === "rockm") {
         return 0;
     }
 
@@ -19,8 +19,9 @@ function playRound(playerSelection, computerSelection) {
 
 let user = 0;
 let computer = 0;
-const btns = document.querySelectorAll(".youbtn");
-btns.forEach(youbtn => youbtn.addEventListener("click", checkAfterClick));
+const youbtns = document.querySelectorAll(".youbtn");
+const btn = document.querySelectorAll(".btn");
+youbtns.forEach(youbtn => youbtn.addEventListener("click", checkAfterClick));
 
 
 function checkAfterClick(e) {
@@ -28,6 +29,11 @@ function checkAfterClick(e) {
     const status = document.getElementById("status");
     const playerSelection = this.getAttribute("id");
     const computerSelection = computerPlay();
+    const computerbtn = document.getElementById(`${computerSelection}`);
+    computerbtn.classList.add("selected");
+    this.classList.add("selected");
+    btn.forEach(bt => bt.addEventListener("transitionend", removeTransition));
+
     let result = playRound(playerSelection, computerSelection)
     if (result == 1) {
         user++;
@@ -38,7 +44,7 @@ function checkAfterClick(e) {
     } else {
         status.textContent = "It is a Draw";
     }
-    
+
     const youcounter = document.getElementById("youcounter");
     youcounter.textContent = `${user}`;
     const machinecounter = document.getElementById("machinecounter");
@@ -46,17 +52,22 @@ function checkAfterClick(e) {
 
     if (user === 5 || computer === 5) {
         const playagain = document.querySelector("#playagain");
-        playagain.addEventListener("click",reset);
+        playagain.addEventListener("click", reset);
         if (user === 5) {
             status.textContent = "You won the Championship <3";
         } else {
             status.textContent = "Better luck next time!";
         }
-        const btn = document.querySelectorAll(".btn");
-        btn.forEach( bt => {bt.style.visibility = "hidden"});
+        btn.forEach(bt => {
+            bt.style.visibility = "hidden"
+        });
         playagain.style.visibility = "visible";
     }
-    
+
+}
+
+function removeTransition(e) {
+    this.classList.remove("selected");
 }
 
 function reset(e) {
@@ -68,13 +79,15 @@ function reset(e) {
     machinecounter.textContent = "0";
     const status = document.getElementById("status");
     status.textContent = "";
-    const btn = document.querySelectorAll(".btn");
-    btn.forEach( bt => {bt.style.visibility = "visible"});
+    btn.forEach(bt => {
+        bt.style.visibility = "visible"
+    });
     this.hide;
+    this.style.visibility = "hidden";
 }
 
 function computerPlay() {
     let randomnumber = Math.floor(Math.random() * 3);
-    var choices = ['rock', 'paper', 'scissor'];
+    var choices = ['paperm', 'rockm', 'scissorm'];
     return choices[randomnumber];
 }
